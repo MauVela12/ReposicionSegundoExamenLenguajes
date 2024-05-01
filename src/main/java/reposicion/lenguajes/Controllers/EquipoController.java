@@ -19,11 +19,6 @@ public class EquipoController {
     @Autowired
     private EquipoServiceImpl  equipoServiceImpl;
 
-    @PostMapping("/agregar")
-    public String agregarEquipo(@RequestBody Equipo nvoEquipo) {
-        return this.equipoServiceImpl.crearEquipo(nvoEquipo);
-    }
-
     @DeleteMapping("/eliminar/{codigoEquipo}")
     public String eliminarEquipo(@PathVariable int codigoEquipo){
         return this.equipoServiceImpl.eliminarEquipo(codigoEquipo);

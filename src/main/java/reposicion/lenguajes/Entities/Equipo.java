@@ -1,5 +1,7 @@
 package reposicion.lenguajes.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Equipo {
 
     private double defensa;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "equipo")
     private Posicion posicion;
 }

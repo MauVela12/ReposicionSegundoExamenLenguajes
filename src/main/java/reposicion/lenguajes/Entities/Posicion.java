@@ -38,4 +38,35 @@ public class Posicion {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codigoequipo", referencedColumnName = "codigoequipo")
     private Equipo equipo;
+
+    public void acumularPartidosGanados() {
+        this.ganados += 1; 
+    }
+
+    public void acumularPartidosPerdidos() {
+        this.perdidos += 1; 
+    }
+
+    public void acumularPartidosEmpatados() {
+        this.empates += 1; 
+    }
+
+    public void acumularGolesFavor(int golesFavor) {
+        this.golesfavor += golesFavor; 
+    }
+
+    public void acumularGolesContra(int golesContra) {
+        this.golescontra += golesContra; 
+    }
+
+    public void acumularPuntos(boolean resultado) {
+        if (resultado) {
+            this.puntos += 3; 
+        }else {
+            if (!resultado) {
+                this.puntos += 1;
+            }
+        }
+    }
+
 }
