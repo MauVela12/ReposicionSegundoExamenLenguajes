@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reposicion.lenguajes.Entities.Equipo;
 import reposicion.lenguajes.Entities.Posicion;
 import reposicion.lenguajes.Services.Impl.PosicionServiceImpl;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
