@@ -3,7 +3,6 @@ package reposicion.lenguajes.Services.Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reposicion.lenguajes.Entities.Equipo;
-import reposicion.lenguajes.Entities.Posicion;
 import reposicion.lenguajes.Repositories.EquipoRepository;
 import reposicion.lenguajes.Services.EquipoService;
 
