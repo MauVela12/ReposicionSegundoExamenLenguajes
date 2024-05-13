@@ -61,9 +61,22 @@ public class PosicionServiceImpl implements PosicionService{
             do{
                 for(int i = 0; i <= posiciones.size(); i++) {
                     for(int j = i + 1; j < posiciones.size(); j++) {
-    
-                        int golesEquipo1 = rand.nextInt(5);
-                        int golesEquipo2 = rand.nextInt(5);
+
+                        int golesEquipo1;
+                        int golesEquipo2;
+                        
+                        if (posiciones.get(i).getEquipo().getAtaque() > posiciones.get(j).getEquipo().getDefensa() && posiciones.get(i).getEquipo().getDefensa() > posiciones.get(j).getEquipo().getAtaque()) {
+                            golesEquipo1 = rand.nextInt(6);
+                            golesEquipo2 = rand.nextInt(3);
+                        }else {
+                            if (posiciones.get(j).getEquipo().getAtaque() > posiciones.get(i).getEquipo().getDefensa() && posiciones.get(j).getEquipo().getDefensa() > posiciones.get(i).getEquipo().getAtaque()) {
+                            golesEquipo1 = rand.nextInt(3);
+                            golesEquipo2 = rand.nextInt(6);   
+                            }else {
+                                golesEquipo1 = rand.nextInt(3);
+                                golesEquipo2 = rand.nextInt(3);
+                            }
+                        }
     
                         posiciones.get(i).acumularGolesFavor(golesEquipo1);
                         posiciones.get(j).acumularGolesFavor(golesEquipo2);
