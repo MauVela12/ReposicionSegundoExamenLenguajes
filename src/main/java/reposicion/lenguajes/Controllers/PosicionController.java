@@ -3,7 +3,9 @@ package reposicion.lenguajes.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,6 +45,15 @@ public class PosicionController {
     @GetMapping("/campeon")
     public Equipo obtenerCampeon() {
         return this.posicionServiceImpl.obtenerCampeon();
+    }
+
+    @DeleteMapping("/eliminarPosicion/{id}")
+    public String eliminar(@PathVariable(name = "id") int id) {
+        if (this.posicionServiceImpl.eliminarPosicion(id)) {
+            return "Posicion eliminada correctamente";
+        }else {
+            return "Error al eliminar la posicion";
+        }
     }
     
 }

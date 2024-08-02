@@ -1,6 +1,7 @@
 package reposicion.lenguajes.Services.Impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,10 @@ public class PosicionServiceImpl implements PosicionService{
             return false;
         }else {
             List<Posicion> posiciones = (List<Posicion>) this.posicionRepository.findAll();
+
+            if (posiciones.get(3).getEquipo() == null) {
+                return false;
+            }
 
             Random rand = new Random();
 
@@ -135,6 +140,11 @@ public class PosicionServiceImpl implements PosicionService{
         }
 
         return campeon;
+    }
+
+    public boolean eliminarPosicion(int id) {
+        this.posicionRepository.deleteById(id);
+        return true;
     }
     
 }
